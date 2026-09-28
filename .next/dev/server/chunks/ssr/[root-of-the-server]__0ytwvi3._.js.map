@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 10, "column": 0}, "map": {"version":3,"sources":["file:///C:/kunj/my%20website/src/app/page.jsx"],"sourcesContent":["import LandingPage from \"../components/LandingPage.jsx\";\r\n\r\nexport default function Page() {\r\n  return <LandingPage />;\r\n}"],"names":["Page"],"mappings":";;;;;AAAA;;;AAEe,SAASA;IACtB,qBAAO,8OAAC,4IAAW;;;;;AACrB"}},
+    {"offset": {"line": 33, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":""}}]
+}

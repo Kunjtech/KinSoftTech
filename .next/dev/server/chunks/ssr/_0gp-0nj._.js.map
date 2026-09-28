@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///C:/kunj/my%20website/node_modules/next/src/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.ts"],"sourcesContent":["module.exports = (\n  require('../../module.compiled') as typeof import('../../module.compiled')\n).vendored['react-rsc']!.ReactJsxDevRuntime\n"],"names":["module","exports","require","vendored","ReactJsxDevRuntime"],"mappings":"AAAAA,OAAOC,OAAO,GACZC,QAAQ,4HACRC,QAAQ,CAAC,YAAY,CAAEC,kBAAkB","ignoreList":[0]}},
+    {"offset": {"line": 9, "column": 0}, "map": {"version":3,"sources":["file:///C:/kunj/my%20website/src/app/layout.jsx"],"sourcesContent":["import \"../styles.css\";\r\n\r\nexport const metadata = {\r\n  title: \"KinSoftTech | Make your next move digital\",\r\n  description: \"Modern websites, e-commerce stores, mobile apps and digital solutions for growing businesses.\",\r\n  icons: { icon: \"/favicon.svg\" },\r\n};\r\n\r\nexport default function RootLayout({ children }) {\r\n  return (\r\n    <html lang=\"en\" suppressHydrationWarning>\r\n      <body>{children}</body>\r\n    </html>\r\n  );\r\n}"],"names":["metadata","title","description","icons","icon","RootLayout","children","lang","suppressHydrationWarning"],"mappings":";;;;;;;;;AAEO,MAAMA,WAAW;IACtBC,OAAO;IACPC,aAAa;IACbC,OAAO;QAAEC,MAAM;IAAe;AAChC;AAEe,SAASC,WAAW,EAAEC,QAAQ,EAAE;IAC7C,qBACE,8OAAC;QAAKC,MAAK;QAAKC,wBAAwB;kBACtC,cAAA,8OAAC;sBAAMF;;;;;;;;;;;AAGb"}}]
+}
