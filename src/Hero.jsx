@@ -11,7 +11,7 @@ export default function Hero({ Icon }) {
           <a className="button button--dark" href="/contact">
             Tell us what you’re building <Icon name="arrow" size={18} />
           </a>
-          <a className="text-link" href="/packages#website-packages">Explore packages <span>↗</span></a>
+          {/* <a className="text-link" href="/packages#website-packages">Explore packages <span>↗</span></a> */}
         </div>
         <div className="hero-proof">
           <div className="proof-avatars" aria-hidden="true"><span>I</span><span>D</span><span>+</span></div>

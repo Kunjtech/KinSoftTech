@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-
 function MenuIcon({ name }) {
   const path = name === "close"
     ? <><path d="m6 6 12 12" /><path d="M18 6 6 18" /></>
@@ -34,7 +33,9 @@ export default function Navbar() {
   return (
     <header className="site-header">
       <a className="brand" href="/" aria-label="KinSoftTech home" onClick={closeMenu}>
-        <span className="brand-mark">K<span>.</span></span>
+        <span className="brand-logo" aria-hidden="true">
+          <img src="/logo.jpg" alt="KinSoftTech" suppressHydrationWarning />
+        </span>
         <span className="brand-name">KinSoftTech<span>Digital solutions</span></span>
       </a>
 
@@ -75,7 +76,7 @@ export default function Navbar() {
           </div>
         </div>
         <a href="/portfolio" onClick={closeMenu}>Portfolio</a>
-        <a href="/packages" onClick={closeMenu}>Packages</a>
+        {/* <a href="/packages" onClick={closeMenu}>Packages</a> */}
         <a href="/about" onClick={closeMenu}>About</a>
         <a className="nav-cta" href="/contact" onClick={closeMenu}>Contact</a>
       </nav>

@@ -10,11 +10,11 @@ const websitePackages = [
 export default function Packages() {
   return (
     <section className="packages section-pad" id="website-packages" aria-labelledby="packages-heading">
-      <div className="section-heading package-heading">
+      {/* <div className="section-heading package-heading">
         <div><p className="section-label">WEBSITE & APP PACKAGES</p><h1 id="packages-heading">Clear pricing for<br /><em>your next digital step.</em></h1></div>
         <p>Starting prices for websites, e-commerce, mobile apps and custom systems. Final pricing is confirmed after understanding your requirements.</p>
-      </div>
-      <div className="package-grid">
+      </div> */}
+      {/* <div className="package-grid">
         {websitePackages.map((pkg) => (
           <article className={`package-card${pkg.featured ? " package-card--featured" : ""}`} id={pkg.name === "Custom Software" ? "custom-software" : pkg.name === "E-commerce Website" ? "ecommerce-package" : pkg.name === "Business Digital Package" ? "mobile-app-package" : undefined} key={pkg.name}>
             {pkg.featured && <div className="package-ribbon">MOST POPULAR <span>✳</span></div>}
@@ -28,7 +28,7 @@ export default function Packages() {
             <div className="package-time">Estimated timeline: {pkg.timeline}</div>
           </article>
         ))}
-      </div>
+      </div> */}
       {/* <p className="package-note"><strong>Important:</strong> Domain, hosting, paid APIs, app store fees, advanced SEO and work outside the agreed scope are quoted separately.</p> */}
     </section>
   );

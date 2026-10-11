@@ -39,6 +39,8 @@ button { color: inherit; }
 #top { position: sticky; top: 0; z-index: 10; }
 .site-header { height: 82px; padding: 0 7.1%; display: flex; align-items: center; justify-content: space-between; background: var(--paper); position: relative; z-index: 5; }
 .brand { display: inline-flex; align-items: center; gap: 9px; }
+.brand-logo { width: 38px; height: 38px; display: block; flex: 0 0 auto; }
+.brand-logo img { display: block; width: 100%; height: 100%; }
 .brand-mark { width: 38px; height: 38px; display: grid; place-items: center; background: var(--lime); border-radius: 50%; font: 800 23px var(--display); letter-spacing: -3px; }
 .brand-mark > span { color: #72912b; }
 .brand-name { display: flex; flex-direction: column; font: 800 15px var(--display); letter-spacing: -.7px; line-height: 1.05; }
@@ -163,6 +165,8 @@ button { color: inherit; }
 .service-detail-panel .section-label { margin-bottom: 14px; }
 .service-detail-panel p:not(.section-label) { max-width: 500px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
 .service-detail-panel--wide p:not(.section-label) { color: #d7e3f3; }
+.service-detail-panel--wide .section-label { color: #7dd3fc; }
+.service-detail-panel--wide p:not(.section-label) { color: #ffffff; line-height: 1.8; }
 .service-detail-panel ul { padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; list-style: none; }
 .service-detail-panel li { padding-top: 9px; border-top: 1px solid var(--line); color: var(--ink); font-size: 10px; line-height: 1.5; }
 .service-detail-panel li::before { content: "✓"; margin-right: 8px; color: var(--lime); font-weight: 700; }
@@ -301,6 +305,8 @@ button { color: inherit; }
 .form-feedback { margin: 15px 0 0; font-size: 9px; line-height: 1.7; }
 .form-feedback--success { color: #547127; }
 .form-feedback--error { color: #b13a2b; }
+.form-bottom .button { min-height: 48px; font-size: 14px; }
+.form-feedback--success { padding: 13px 15px; border-left: 3px solid #16a34a; background: #ecfdf5; color: #166534; font-size: 14px; line-height: 1.6; }
 .whatsapp-link { margin-top: 15px; display: inline-flex; color: #15803d; font-size: 11px; font-weight: 700; }
 .whatsapp-float { width: 56px; height: 56px; position: fixed; right: 24px; bottom: 24px; z-index: 20; display: grid; place-items: center; border: 3px solid #ffffff; border-radius: 50%; background: #16a34a; color: #ffffff; box-shadow: 0 10px 24px rgb(15 23 42 / 24%); transition: transform .25s ease, background .25s ease, box-shadow .25s ease; }
 .whatsapp-float svg { width: 27px; height: 27px; }
@@ -669,6 +675,10 @@ body { font-size: 16px; line-height: 1.5; }
 .cta-band-copy { max-width: 390px; margin: 20px 0 26px; color: #dbeafe; font-size: 13px; line-height: 1.8; }
 .cta-band .button--cream { background: #ffffff; color: #1d4ed8; }
 .cta-band .button--cream:hover { background: #e0f2fe; }
+.cta-band .section-label { color: #ffffff; }
+.cta-band .section-label::before,
+.cta-band .section-label::after { background: #bae6fd; }
+.cta-band-copy { color: #eff6ff; }
 .site-footer { background: #080f1f; }
 .footer-links { padding: 28px 0 30px; display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 34px; border-top: 1px solid rgb(219 234 254 / 18%); }
 .footer-links > div { display: flex; flex-direction: column; align-items: flex-start; gap: 9px; }
@@ -755,9 +765,13 @@ body { font-size: 16px; }
 .scroll-cue { font-size: 12px; letter-spacing: 1px; }
 .button { font-size: 14px; }
 .section-label { font-size: 12px; }
+.section-label { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; }
+.section-label::before,
+.section-label::after { content: ""; width: 18px; height: 1px; flex: 0 0 auto; background: #0ea5e9; }
 .section-heading > p { font-size: 14px; }
 .intro-strip p:nth-of-type(2) { font-size: 14px; }
 .intro-strip p:first-child { font-size: 21px; }
+.landing-capability-number { font-size: 14px; }
 .landing-capability p { font-size: 14px; line-height: 1.75; }
 .service-top { font-size: 12px; }
 .service-card > p { font-size: 14px; }
@@ -811,6 +825,9 @@ body { font-size: 16px; }
   .hero-proof p { font-size: 10px; }
   .scroll-cue { font-size: 10px; letter-spacing: .8px; }
   .section-heading > p { font-size: 12px; }
+  .section-label { gap: 7px; }
+  .section-label::before,
+  .section-label::after { width: 12px; }
   .intro-strip p:nth-of-type(2) { font-size: 11px; }
   .intro-strip p:first-child { font-size: 18px; }
   .landing-capability p { font-size: 13px; }

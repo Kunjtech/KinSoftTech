@@ -37,7 +37,7 @@ export default function LandingPage() {
         </div>
         <div className="landing-overview-links">
           <a className="button button--dark" href="/services">Explore all services <ArrowIcon size={17} /></a>
-          <a className="text-link" href="/packages">See packages and pricing <span>↗</span></a>
+          {/* <a className="text-link" href="/packages">See packages and pricing <span>↗</span></a> */}
         </div>
       </section>
 
