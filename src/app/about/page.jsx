@@ -4,5 +4,11 @@ import HowWeWork from "../../components/HowWeWork.jsx";
 import PageShell from "../../components/PageShell.jsx";
 
 export default function AboutPage() {
-  return <PageShell><About /><WhyChooseUs /><HowWeWork /></PageShell>;
+  return (
+    <PageShell>
+      <About />
+      <WhyChooseUs />
+      <HowWeWork />
+    </PageShell>
+  );
 }

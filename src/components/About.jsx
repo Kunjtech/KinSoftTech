@@ -9,9 +9,17 @@ export default function About() {
         <p>We help growing businesses turn good ideas into clear, useful and memorable digital experiences.</p>
       </div>
       <div className="intro-strip">
-        <p>Big-agency thinking.<br /><span>Small-studio care.</span></p>
+        <p>
+          Big-agency thinking.
+          <br />
+          <span>Small-studio care.</span>
+        </p>
         <div className="intro-divider" />
-        <p>From the first conversation to launch and beyond, we keep the process focused, collaborative and easy to understand. Our work is modern, responsive, business-focused and supported after launch.</p>
+        <p>
+          From the first conversation to launch and beyond, we keep the process
+          focused, collaborative and easy to understand. Our work is modern,
+          responsive, business-focused and supported after launch.
+        </p>
       </div>
     </section>
   );

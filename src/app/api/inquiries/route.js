@@ -99,17 +99,30 @@ export async function POST(request) {
   try {
     await mkdir(dataDirectory, { recursive: true });
     await appendFile(leadsFile, `${JSON.stringify(inquiry)}\n`, { encoding: "utf8", flag: "a" });
-    const emailSent = await sendInquiryEmail(inquiry);
     recentSubmissions.set(normalizedEmail, now);
     for (const [address, timestamp] of recentSubmissions) {
       if (now - timestamp > 60 * 60 * 1000) recentSubmissions.delete(address);
     }
-    if (!emailSent) {
-      return Response.json({ error: "Your enquiry was saved, but email delivery is not configured yet." }, { status: 503 });
-    }
-    return Response.json({ message: "Enquiry received." }, { status: 201 });
   } catch (error) {
-    console.error("Request failed:", error);
+    console.error("Could not save enquiry:", error);
     return Response.json({ error: "We couldn’t save your enquiry just now. Please try again." }, { status: 500 });
   }
+
+  try {
+    const emailSent = await sendInquiryEmail(inquiry);
+    if (!emailSent) {
+      return Response.json(
+        { error: "Your enquiry was saved, but email delivery is not configured yet." },
+        { status: 503 },
+      );
+    }
+  } catch (error) {
+    console.error("Enquiry was saved, but email delivery failed:", error);
+    return Response.json(
+      { error: "Your enquiry was saved, but we couldn’t email it. Please contact us directly." },
+      { status: 502 },
+    );
+  }
+
+  return Response.json({ message: "Enquiry received." }, { status: 201 });
 }

@@ -12,5 +12,10 @@ export default async function ServiceDetailPage({ params }) {
   const service = getServiceDetails(slug);
   if (!service) notFound();
 
-  return <PageShell><ServiceDetail service={service} /><CTA /></PageShell>;
+  return (
+    <PageShell>
+      <ServiceDetail service={service} />
+      <CTA />
+    </PageShell>
+  );
 }
