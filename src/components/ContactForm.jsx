@@ -66,16 +66,92 @@ export default function ContactForm() {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
-      <div className="form-heading"><span>START A CONVERSATION</span><span>IT TAKES ABOUT A MINUTE</span></div>
-      <label>Your name<input name="name" type="text" placeholder="What should we call you?" autoComplete="name" minLength="2" maxLength="80" pattern="[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ .'-]{1,79}" title="Please enter a valid name." required /></label>
-      <label>Email address<input name="email" type="email" placeholder="you@example.com" autoComplete="email" maxLength="254" required /></label>
-      <label>Phone (optional)<input name="phone" type="tel" placeholder="+91 9876543210" autoComplete="tel" maxLength="25" pattern="[0-9+() .-]{7,25}" title="Please enter a valid phone number." /></label>
-      <label>What can we help with?<input name="service" type="text" placeholder="Website, app or digital tool" maxLength="100" minLength="2" required /></label>
-      <label>A little about your project<textarea name="message" placeholder="What are you hoping to make?" rows="5" minLength="5" maxLength="2000" required /></label>
-      <div className="form-bottom"><p>We’ll reply about your enquiry as soon as we can.</p><button className="button button--dark" type="submit" disabled={status === "sending"}>{status === "sending" ? "Sending..." : "Send enquiry"}</button></div>
-      {whatsappLink && <a className="whatsapp-link" href={whatsappLink} target="_blank" rel="noreferrer">Prefer WhatsApp? Start a chat ↗</a>}
-      {status === "success" && <p className="form-feedback form-feedback--success" role="status">Your enquiry has been sent successfully. We’ll be in touch soon.</p>}
-      {status === "error" && <p className="form-feedback form-feedback--error" role="alert">{errorMessage || "Please check your details and try again."}</p>}
+      <div className="form-heading">
+        <span>START A CONVERSATION</span>
+        <span>IT TAKES ABOUT A MINUTE</span>
+      </div>
+      <label>
+        Your name
+        <input
+          name="name"
+          type="text"
+          placeholder="What should we call you?"
+          autoComplete="name"
+          minLength="2"
+          maxLength="80"
+          required
+        />
+      </label>
+      <label>
+        Email address
+        <input
+          name="email"
+          type="email"
+          placeholder="you@example.com"
+          autoComplete="email"
+          maxLength="254"
+          required
+        />
+      </label>
+      <label>
+        Phone (optional)
+        <input
+          name="phone"
+          type="tel"
+          placeholder="+91 9876543210"
+          autoComplete="tel"
+          maxLength="25"
+          pattern="[0-9+() .-]{7,25}"
+          title="Please enter a valid phone number."
+        />
+      </label>
+      <label>
+        What can we help with?
+        <input
+          name="service"
+          type="text"
+          placeholder="Website, app or digital tool"
+          minLength="2"
+          maxLength="100"
+          required
+        />
+      </label>
+      <label>
+        A little about your project
+        <textarea
+          name="message"
+          placeholder="What are you hoping to make?"
+          rows="5"
+          minLength="5"
+          maxLength="2000"
+          required
+        />
+      </label>
+      <div className="form-bottom">
+        <p>We’ll reply about your enquiry as soon as we can.</p>
+        <button
+          className="button button--dark"
+          type="submit"
+          disabled={status === "sending"}
+        >
+          {status === "sending" ? "Sending..." : "Send enquiry"}
+        </button>
+      </div>
+      {whatsappLink && (
+        <a className="whatsapp-link" href={whatsappLink} target="_blank" rel="noreferrer">
+          Prefer WhatsApp? Start a chat ↗
+        </a>
+      )}
+      {status === "success" && (
+        <p className="form-feedback form-feedback--success" role="status">
+          Your enquiry has been sent successfully. We’ll be in touch soon.
+        </p>
+      )}
+      {status === "error" && (
+        <p className="form-feedback form-feedback--error" role="alert">
+          {errorMessage || "Please check your details and try again."}
+        </p>
+      )}
     </form>
   );
 }

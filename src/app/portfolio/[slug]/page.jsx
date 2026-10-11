@@ -13,5 +13,10 @@ export default async function SampleWorkPage({ params }) {
   const project = getSampleWork(slug, sampleWork);
   if (!project) notFound();
 
-  return <PageShell><SampleWorkDetail project={project} /><CTA /></PageShell>;
+  return (
+    <PageShell>
+      <SampleWorkDetail project={project} />
+      <CTA />
+    </PageShell>
+  );
 }
