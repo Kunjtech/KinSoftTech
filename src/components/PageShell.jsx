@@ -7,9 +7,7 @@ export default function PageShell({ children }) {
   return (
     <>
       <AnnouncementBar />
-      <div>
-        <Navbar />
-      </div>
+      <Navbar />
       <main>{children}</main>
       <Footer />
       <WhatsAppButton />
