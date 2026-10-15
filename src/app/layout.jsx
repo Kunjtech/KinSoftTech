@@ -20,6 +20,10 @@ export const metadata = {
   icons: { icon: "/favicon.svg" },
 };
 
+export const viewport = {
+  themeColor: "#0f172a",
+};
+
 export default function RootLayout({ children }) {
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
@@ -27,6 +31,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body>
         {children}
+        <Script src="/register-service-worker.js" strategy="afterInteractive" />
         {gaId ? (
           <>
             <Script id="google-analytics" strategy="afterInteractive">

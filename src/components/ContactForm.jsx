@@ -1,14 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { whatsappHref } from "../lib/whatsapp.js";
 
 export default function ContactForm() {
   const [status, setStatus] = useState("idle");
   const [errorMessage, setErrorMessage] = useState("");
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.replace(/\D/g, "");
-  const whatsappLink = whatsappNumber
-    ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi KinSoftTech, I would like to discuss a project.")}`
-    : "";
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -137,11 +134,9 @@ export default function ContactForm() {
           {status === "sending" ? "Sending..." : "Send enquiry"}
         </button>
       </div>
-      {whatsappLink && (
-        <a className="whatsapp-link" href={whatsappLink} target="_blank" rel="noreferrer">
-          Prefer WhatsApp? Start a chat ↗
-        </a>
-      )}
+      <a className="whatsapp-link" href={whatsappHref} target="_blank" rel="noreferrer">
+        Prefer WhatsApp? Start a chat ↗
+      </a>
       {status === "success" && (
         <p className="form-feedback form-feedback--success" role="status">
           Your enquiry has been sent successfully. We’ll be in touch soon.

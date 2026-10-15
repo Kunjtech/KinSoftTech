@@ -1,14 +1,10 @@
+import { whatsappHref } from "../lib/whatsapp.js";
+
 export default function WhatsAppButton() {
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.replace(/\D/g, "");
-
-  if (!whatsappNumber) return null;
-
-  const message = encodeURIComponent("Hi KinSoftTech, I would like to discuss a project.");
-
   return (
     <a
       className="whatsapp-float"
-      href={`https://wa.me/${whatsappNumber}?text=${message}`}
+      href={whatsappHref}
       target="_blank"
       rel="noreferrer"
       aria-label="Chat with KinSoftTech on WhatsApp"
