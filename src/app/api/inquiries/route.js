@@ -12,9 +12,18 @@ async function sendInquiryEmail(inquiry) {
     .map((email) => email.trim())
     .filter(Boolean);
   const sender = process.env.CONTACT_FROM_EMAIL;
+  const senderAddress = sender?.match(/<([^<>]+)>/)?.[1] ?? sender?.trim();
+  const isEmailAddress = (email) =>
+    typeof email === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  if (!apiKey || recipients.length === 0 || !sender) {
-    console.warn("Email delivery is not configured.");
+  if (
+    !apiKey ||
+    recipients.length === 0 ||
+    !recipients.every(isEmailAddress) ||
+    !sender ||
+    !isEmailAddress(senderAddress)
+  ) {
+    console.warn("Email delivery configuration is incomplete or invalid.");
     return false;
   }
 
@@ -42,7 +51,12 @@ async function sendInquiryEmail(inquiry) {
   });
 
   if (!response.ok) {
-    throw new Error(`Email provider returned ${response.status}`);
+    const details = await response.json().catch(() => null);
+    const providerMessage =
+      typeof details?.message === "string" ? details.message.slice(0, 240) : "";
+    throw new Error(
+      `Resend rejected the email (${response.status})${providerMessage ? `: ${providerMessage}` : ""}`,
+    );
   }
 
   return true;
@@ -115,8 +129,8 @@ export async function POST(request) {
       return Response.json(
         {
           error: persistLocally
-            ? "Your enquiry was saved locally, but email delivery is not configured yet."
-            : "Email delivery is not configured yet. Please contact us directly.",
+            ? "Your enquiry was saved locally, but email setup is incomplete. Check the Resend sender address and recipient settings."
+            : "Email setup is incomplete. Please check the Resend sender address and recipient settings, or contact us directly.",
         },
         { status: 503 },
       );
@@ -126,11 +140,15 @@ export async function POST(request) {
       persistLocally ? "Enquiry was saved, but email delivery failed:" : "Enquiry email delivery failed:",
       error,
     );
+    const developmentDetails =
+      process.env.NODE_ENV === "development" && error instanceof Error
+        ? ` (${error.message})`
+        : "";
     return Response.json(
       {
         error: persistLocally
-          ? "Your enquiry was saved locally, but we couldn’t email it. Please contact us directly."
-          : "We couldn’t email your enquiry. Please contact us directly.",
+          ? `Your enquiry was saved locally, but we couldn’t email it. Please contact us directly.${developmentDetails}`
+          : `We couldn’t email your enquiry. Please contact us directly.${developmentDetails}`,
       },
       { status: 502 },
     );

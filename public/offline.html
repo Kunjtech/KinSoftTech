@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0f172a">
+    <title>You’re offline | KinSoftTech</title>
+    <style>
+      :root { color-scheme: light; font-family: Arial, sans-serif; color: #0f172a; background: #fbfdff; }
+      * { box-sizing: border-box; }
+      body { min-height: 100vh; margin: 0; padding: 24px; display: grid; place-items: center; }
+      main { width: min(100%, 520px); padding: 40px; border: 1px solid #dbe5f0; border-radius: 16px; background: #fff; }
+      img { width: 52px; height: 52px; }
+      h1 { margin: 24px 0 12px; font-size: clamp(30px, 8vw, 42px); letter-spacing: -1.5px; }
+      p { color: #5b6b82; font-size: 16px; line-height: 1.7; }
+      button { margin-top: 12px; padding: 13px 18px; border: 0; border-radius: 6px; background: #1d4ed8; color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+      button:focus-visible { outline: 3px solid #0ea5e9; outline-offset: 3px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <svg aria-hidden="true" width="52" height="52" viewBox="0 0 64 64" fill="none">
+        <circle cx="32" cy="32" r="30" fill="#1d4ed8"></circle>
+        <path d="M21 16v32m0-17 20-15M30 32l12 16" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+      <h1>You’re offline</h1>
+      <p>KinSoftTech needs an internet connection to load this page. Reconnect and try again.</p>
+      <button type="button" onclick="location.reload()">Try again</button>
+    </main>
+  </body>
+</html>

@@ -25,9 +25,13 @@ npm start
 
 Next.js serves the website and API route from the same process. Set `PORT` to use a different port.
 
+## Progressive Web App
+
+The site is installable as a PWA on browsers that support installation. It provides a simple offline page when a navigation cannot reach the network. The service worker deliberately does not cache website pages, API requests, contact form submissions, or user data. Serve the deployed site over HTTPS; localhost is also supported for development.
+
 ## Enquiries
 
-The contact form posts to `/api/inquiries`. The API saves valid enquiries as JSON Lines in `data/inquiries.jsonl` and emails them through [Resend](https://resend.com/).
+The contact form posts to `/api/inquiries` and delivers valid enquiries by email through [Resend](https://resend.com/). During local development, enquiries are also appended as JSON Lines to `data/inquiries.jsonl`. Production submissions are not written to the local filesystem because serverless storage is not durable.
 
 ### Enable enquiry emails
 
@@ -41,7 +45,7 @@ The contact form posts to `/api/inquiries`. The API saves valid enquiries as JSO
 5. For production, set the same variables in your hosting provider's server-side environment settings and redeploy. Never use a `NEXT_PUBLIC_` prefix for the Resend API key.
 6. Submit a test enquiry and check the recipient inbox and spam folder.
 
-The sender address must belong to a domain verified in Resend; the recipient can be your normal business inbox. If email is not configured or delivery fails, the API reports that explicitly and the enquiry remains saved locally.
+The sender address must belong to a domain verified in Resend; the recipient can be your normal business inbox. If email is not configured or delivery fails, the API reports that explicitly. In development, the enquiry remains saved locally; in production, use a database or hosted form service if you also need a durable submission archive.
 
 The `data` directory is ignored by Git. Local file storage requires a persistent disk; serverless hosts may not retain it, so use a database or hosted form service for durable storage there.
 
