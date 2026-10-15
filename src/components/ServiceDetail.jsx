@@ -2,7 +2,8 @@ const serviceDetails = {
   "website-development": {
     eyebrow: "WEBSITE DEVELOPMENT",
     title: "A website that makes your business easier to choose.",
-    description: "We design and develop fast, responsive websites that explain what you do clearly and turn the right visitors into enquiries.",
+    description: "We design and develop fast, responsive business websites that explain what you do clearly and turn the right visitors into enquiries.",
+    keywords: ["website design", "website development", "business website design", "responsive web design", "landing page development"],
     suitableFor: "Startups, local businesses, professionals, service brands, restaurants, hotels, real-estate teams and educators.",
     features: [
       "Business and corporate websites",
@@ -10,15 +11,17 @@ const serviceDetails = {
       "Service-based websites",
       "Mobile, tablet and desktop layouts",
       "Contact forms, WhatsApp, Maps and social links",
+      "CMS setup for agreed editable content, where suitable",
       "Basic SEO and speed optimization",
       "Deployment assistance",
     ],
-    deliverables: "A polished responsive website with the agreed pages, content sections, integrations and launch support.",
+    deliverables: "A polished responsive website with the agreed pages, content sections, integrations and launch support. CMS platform and editable areas are confirmed in the project scope.",
   },
   "ecommerce-development": {
     eyebrow: "E-COMMERCE DEVELOPMENT",
     title: "An online store built to make buying simple.",
-    description: "We create clear product journeys, reliable checkout flows and manageable store foundations for businesses selling online.",
+    description: "We build e-commerce websites with clear product journeys, reliable checkout flows, and manageable online stores for businesses selling online.",
+    keywords: ["e-commerce website development", "online store development", "e-commerce web design", "payment gateway integration"],
     suitableFor: "Product businesses, local brands, retailers and growing companies moving their catalogue online.",
     features: [
       "Product catalogue and categories",
@@ -34,7 +37,8 @@ const serviceDetails = {
   "mobile-app-development": {
     eyebrow: "MOBILE APP DEVELOPMENT",
     title: "A useful mobile experience for your customers.",
-    description: "We build practical Android, iOS and cross-platform applications that bring your services, products or bookings closer to users.",
+    description: "We build practical Android and iOS app experiences, including cross-platform mobile apps that bring your services, products, or bookings closer to users.",
+    keywords: ["mobile app development", "Android app development", "iOS app development", "cross-platform app development"],
     suitableFor: "Businesses that need customer-facing apps, booking apps, e-commerce apps or internal mobile workflows.",
     features: [
       "Modern mobile UI",
@@ -50,7 +54,8 @@ const serviceDetails = {
   "custom-software": {
     eyebrow: "CUSTOM SOFTWARE",
     title: "Digital systems shaped around how your team works.",
-    description: "We turn manual workflows into focused software that gives your team better visibility, fewer repetitive tasks and room to grow.",
+    description: "Our custom software development turns manual workflows into focused business software, dashboards, and internal tools that reduce repetitive tasks.",
+    keywords: ["custom software development", "business software development", "dashboard development", "CRM development", "internal tools"],
     suitableFor: "Businesses that need internal tools, dashboards, operational systems or a complete SaaS-style product.",
     features: [
       "CRM and customer management",
@@ -66,7 +71,8 @@ const serviceDetails = {
   "api-integrations": {
     eyebrow: "API & INTEGRATIONS",
     title: "The connections that make your digital product work harder.",
-    description: "We connect your website or app to the services your business already relies on, without making the experience feel stitched together.",
+    description: "We provide API integration services that connect your website or app with payments, WhatsApp, Maps, CRM, analytics, and other business tools.",
+    keywords: ["API integration services", "website API integration", "payment integration", "WhatsApp integration", "Google Maps integration"],
     suitableFor: "Businesses that need payments, WhatsApp, Maps, analytics, CRM, booking or third-party service connections.",
     features: [
       "REST API integrations",
@@ -82,7 +88,8 @@ const serviceDetails = {
   maintenance: {
     eyebrow: "WEBSITE & APP MAINTENANCE",
     title: "Reliable support after launch.",
-    description: "Keep your digital product healthy with a support plan for updates, fixes, monitoring and ongoing technical care.",
+    description: "Keep your website or app healthy with maintenance services for updates, bug fixes, monitoring, performance, and ongoing technical support.",
+    keywords: ["website maintenance", "website support services", "app maintenance", "website updates", "website performance optimization"],
     suitableFor: "Businesses that want a reliable technical partner after their website or app goes live.",
     features: [
       "Basic content updates",

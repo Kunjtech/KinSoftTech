@@ -1,5 +1,11 @@
 import PageShell from "../../components/PageShell.jsx";
 
+export const metadata = {
+  title: "Privacy Policy",
+  description:
+    "Read the KinSoftTech privacy policy to learn how information submitted through our website enquiry form is used and handled.",
+};
+
 export default function PrivacyPage() {
   return (
     <PageShell>

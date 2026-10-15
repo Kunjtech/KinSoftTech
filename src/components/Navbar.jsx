@@ -106,6 +106,10 @@ export default function Navbar() {
               <strong>Maintenance</strong>
               <small>Ongoing updates, support and monitoring</small>
             </a>
+            <a href="/services#cms-support" onClick={closeMenu}>
+              <strong>CMS Support</strong>
+              <small>Content updates and practical guidance</small>
+            </a>
           </div>
         </div>
         <a href="/portfolio" onClick={closeMenu}>
