@@ -11,7 +11,7 @@ export default function HowWeWork() {
   return (
     <section className="process section-pad" aria-labelledby="process-heading">
       <div className="section-heading process-heading">
-        <div><p className="section-label">HOW WE WORK</p><h1 id="process-heading">A clear path<br />from here to live.</h1></div>
+        <div><p className="section-label">HOW WE WORK</p><h2 id="process-heading">A clear path<br />from here to live.</h2></div>
         <p>Good work is a team effort. You’ll know what’s happening, what’s next and where your project stands.</p>
       </div>
       <div className="process-grid process-grid--expanded">

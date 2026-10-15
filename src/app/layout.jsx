@@ -3,8 +3,20 @@ import Script from "next/script";
 import GoogleAnalyticsPageViews from "../components/GoogleAnalyticsPageViews.jsx";
 
 export const metadata = {
-  title: "KinSoftTech | Make your next move digital",
-  description: "Modern websites, e-commerce stores, mobile apps and digital solutions for growing businesses.",
+  title: {
+    default: "Web Development & Digital Solutions | KinSoftTech",
+    template: "%s | KinSoftTech",
+  },
+  description:
+    "KinSoftTech provides website design and development, e-commerce websites, mobile app development, and custom software for growing businesses.",
+  keywords: [
+    "website design",
+    "web development",
+    "business websites",
+    "e-commerce website development",
+    "mobile app development",
+    "custom software development",
+  ],
   icons: { icon: "/favicon.svg" },
 };
 

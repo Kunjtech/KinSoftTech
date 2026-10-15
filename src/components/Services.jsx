@@ -100,6 +100,43 @@ export default function Services() {
           </article>
         ))}
       </div>
+      <section className="cms-support" id="cms-support" aria-labelledby="cms-support-heading">
+        <div className="section-heading">
+          <div>
+            <p className="section-label">CONTENT MANAGEMENT SUPPORT</p>
+            <h2 id="cms-support-heading">
+              Keep your website
+              <br />
+              <em>up to date.</em>
+            </h2>
+          </div>
+          <p>
+            Need help managing website content? We can help with routine edits
+            on supported CMS websites. We’ll confirm the platform and scope
+            before work begins.
+          </p>
+        </div>
+        <div className="cms-support-grid">
+          <article className="cms-support-card">
+            <span>01 / CONTENT</span>
+            <h3>Text and image updates</h3>
+            <p>Refresh page copy, images and business information on CMS-managed websites.</p>
+          </article>
+          <article className="cms-support-card">
+            <span>02 / PAGES & PRODUCTS</span>
+            <h3>Routine content changes</h3>
+            <p>Add or update pages and product details when supported by your website platform.</p>
+          </article>
+          <article className="cms-support-card">
+            <span>03 / GUIDANCE</span>
+            <h3>Help for your team</h3>
+            <p>Get practical guidance for making everyday content changes yourself.</p>
+          </article>
+        </div>
+        <a className="button button--dark" href="/contact">
+          Discuss CMS support <span>↗</span>
+        </a>
+      </section>
     </section>
   );
 }

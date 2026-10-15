@@ -14,7 +14,7 @@ async function sendInquiryEmail(inquiry) {
   const sender = process.env.CONTACT_FROM_EMAIL;
 
   if (!apiKey || recipients.length === 0 || !sender) {
-    console.warn("Email delivery is not configured. Enquiry was saved locally only.");
+    console.warn("Email delivery is not configured.");
     return false;
   }
 
@@ -96,32 +96,49 @@ export async function POST(request) {
     createdAt: new Date(now).toISOString(),
   };
 
-  try {
-    await mkdir(dataDirectory, { recursive: true });
-    await appendFile(leadsFile, `${JSON.stringify(inquiry)}\n`, { encoding: "utf8", flag: "a" });
-    recentSubmissions.set(normalizedEmail, now);
-    for (const [address, timestamp] of recentSubmissions) {
-      if (now - timestamp > 60 * 60 * 1000) recentSubmissions.delete(address);
+  const persistLocally = process.env.NODE_ENV !== "production";
+
+  if (persistLocally) {
+    try {
+      await mkdir(dataDirectory, { recursive: true });
+      await appendFile(leadsFile, `${JSON.stringify(inquiry)}\n`, { encoding: "utf8", flag: "a" });
+      recentSubmissions.set(normalizedEmail, now);
+    } catch (error) {
+      console.error("Could not save enquiry:", error);
+      return Response.json({ error: "We couldn’t save your enquiry just now. Please try again." }, { status: 500 });
     }
-  } catch (error) {
-    console.error("Could not save enquiry:", error);
-    return Response.json({ error: "We couldn’t save your enquiry just now. Please try again." }, { status: 500 });
   }
 
   try {
     const emailSent = await sendInquiryEmail(inquiry);
     if (!emailSent) {
       return Response.json(
-        { error: "Your enquiry was saved, but email delivery is not configured yet." },
+        {
+          error: persistLocally
+            ? "Your enquiry was saved locally, but email delivery is not configured yet."
+            : "Email delivery is not configured yet. Please contact us directly.",
+        },
         { status: 503 },
       );
     }
   } catch (error) {
-    console.error("Enquiry was saved, but email delivery failed:", error);
+    console.error(
+      persistLocally ? "Enquiry was saved, but email delivery failed:" : "Enquiry email delivery failed:",
+      error,
+    );
     return Response.json(
-      { error: "Your enquiry was saved, but we couldn’t email it. Please contact us directly." },
+      {
+        error: persistLocally
+          ? "Your enquiry was saved locally, but we couldn’t email it. Please contact us directly."
+          : "We couldn’t email your enquiry. Please contact us directly.",
+      },
       { status: 502 },
     );
+  }
+
+  if (!persistLocally) recentSubmissions.set(normalizedEmail, now);
+  for (const [address, timestamp] of recentSubmissions) {
+    if (now - timestamp > 60 * 60 * 1000) recentSubmissions.delete(address);
   }
 
   return Response.json({ message: "Enquiry received." }, { status: 201 });

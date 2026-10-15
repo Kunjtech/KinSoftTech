@@ -39,11 +39,11 @@ export default function LandingPage() {
         <div className="section-heading">
           <div>
             <p className="section-label">ONE DIGITAL PARTNER</p>
-            <h1 id="landing-overview-heading">
+            <h2 id="landing-overview-heading">
               From first idea
               <br />
               <em>to fully live.</em>
-            </h1>
+            </h2>
           </div>
           <p>
             KinSoftTech helps growing businesses build, launch and improve the

@@ -1,6 +1,18 @@
 import ContactForm from "../../components/ContactForm.jsx";
 import PageShell from "../../components/PageShell.jsx";
 
+export const metadata = {
+  title: "Contact",
+  description:
+    "Contact KinSoftTech to discuss website design, e-commerce development, a mobile app, or custom software for your business.",
+  keywords: [
+    "contact web development company",
+    "website design enquiry",
+    "mobile app development enquiry",
+    "custom software enquiry",
+  ],
+};
+
 export default function ContactPage() {
   return (
     <PageShell>

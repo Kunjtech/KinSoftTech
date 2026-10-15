@@ -1,5 +1,11 @@
 import PageShell from "../../components/PageShell.jsx";
 
+export const metadata = {
+  title: "Terms of Service",
+  description:
+    "Review KinSoftTech terms of service, including how project scope, timelines, pricing, and revisions are agreed.",
+};
+
 export default function TermsPage() {
   return (
     <PageShell>
