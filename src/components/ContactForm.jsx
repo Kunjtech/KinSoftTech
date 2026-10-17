@@ -34,7 +34,7 @@ export default function ContactForm() {
       setErrorMessage("Please enter a valid phone number.");
       return;
     }
-    if (service.length < 2 || service.length > 100) {
+    if (service.length < 2 || service.length > 500) {
       setStatus("error");
       setErrorMessage("Please tell us which service you need.");
       return;

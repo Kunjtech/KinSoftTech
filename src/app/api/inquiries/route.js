@@ -1,3 +1,4 @@
+import { Resend } from "resend";
 import { appendFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 
@@ -24,42 +25,41 @@ async function sendInquiryEmail(inquiry) {
     !isEmailAddress(senderAddress)
   ) {
     console.warn("Email delivery configuration is incomplete or invalid.");
-    return false;
+    return { sent: false, configurationError: true };
   }
 
-  const response = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: sender,
-      to: recipients,
-      reply_to: inquiry.email,
-      subject: `New website enquiry from ${inquiry.name}`,
-      text: [
-        `Name: ${inquiry.name}`,
-        `Email: ${inquiry.email}`,
-        `Phone: ${inquiry.phone || "Not provided"}`,
-        `Service: ${inquiry.service}`,
-        "",
-        "Project message:",
-        inquiry.message,
-      ].join("\n"),
-    }),
+  const resend = new Resend(apiKey);
+  console.log('inquiry', inquiry);
+  const { data, error } = await resend.emails.send({
+    from: sender,
+    to: recipients,
+    replyTo: inquiry.email,
+    subject: `New website enquiry from ${inquiry.name}`,
+    text: [
+      `Name: ${inquiry.name}`,
+      `Email: ${inquiry.email}`,
+      `Phone: ${inquiry.phone || "Not provided"}`,
+      `Service: ${inquiry.service}`,
+      "",
+      "Project message:",
+      inquiry.message,
+    ].join("\n"),
+  }, {
+    idempotencyKey: `website-inquiry/${inquiry.id}`,
   });
 
-  if (!response.ok) {
-    const details = await response.json().catch(() => null);
-    const providerMessage =
-      typeof details?.message === "string" ? details.message.slice(0, 240) : "";
-    throw new Error(
-      `Resend rejected the email (${response.status})${providerMessage ? `: ${providerMessage}` : ""}`,
-    );
+  if (error) {
+    return {
+      sent: false,
+      error: new Error(`Resend rejected the email: ${error.message}`),
+    };
   }
 
-  return true;
+  if (!data?.id) {
+    return { sent: false, error: new Error("Resend did not return an email ID.") };
+  }
+
+  return { sent: true };
 }
 
 export async function POST(request) {
@@ -124,8 +124,8 @@ export async function POST(request) {
   }
 
   try {
-    const emailSent = await sendInquiryEmail(inquiry);
-    if (!emailSent) {
+    const delivery = await sendInquiryEmail(inquiry);
+    if (delivery.configurationError) {
       return Response.json(
         {
           error: persistLocally
@@ -134,6 +134,26 @@ export async function POST(request) {
         },
         { status: 503 },
       );
+    }
+
+    if (delivery.error) {
+      console.error("Resend could not send the enquiry email:", delivery.error);
+      const developmentDetails =
+        process.env.NODE_ENV === "development"
+          ? ` (${delivery.error.message})`
+          : "";
+      return Response.json(
+        {
+          error: persistLocally
+            ? `Your enquiry was saved locally, but we couldn’t email it. Please contact us directly.${developmentDetails}`
+            : `We couldn’t email your enquiry. Please contact us directly.${developmentDetails}`,
+        },
+        { status: 502 },
+      );
+    }
+
+    if (!delivery.sent) {
+      throw new Error("Resend email delivery ended without a success or error result.");
     }
   } catch (error) {
     console.error(
