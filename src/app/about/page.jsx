@@ -4,14 +4,16 @@ import HowWeWork from "../../components/HowWeWork.jsx";
 import PageShell from "../../components/PageShell.jsx";
 
 export const metadata = {
-  title: "About Our Digital Studio",
+  title: "About Our Agra Digital Studio",
   description:
-    "Meet KinSoftTech, a digital studio helping businesses plan and launch websites, mobile apps, e-commerce stores, and custom software.",
+    "Meet KinSoftTech, an Agra-based digital studio helping businesses plan and launch websites, mobile apps, e-commerce stores, and custom software.",
   keywords: [
     "digital studio",
+    "digital studio in Agra",
     "web development company",
-    "website and app development",
-    "digital solutions for businesses",
+    "web development company in Agra",
+    "website and app development company",
+    "digital solutions for businesses in Agra",
   ],
 };
 

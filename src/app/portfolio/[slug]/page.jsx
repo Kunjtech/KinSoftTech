@@ -14,7 +14,7 @@ export async function generateMetadata({ params }) {
 
   return {
     title: `${project.title} Website Concept`,
-    description: project.description,
+    description: `${project.description} A sample website concept from KinSoftTech, a web design studio in Agra.`,
     keywords: [
       `${project.category} website design`,
       `${project.category} website concept`,

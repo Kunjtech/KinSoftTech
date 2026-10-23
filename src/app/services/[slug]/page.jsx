@@ -12,9 +12,11 @@ export async function generateMetadata({ params }) {
   }
 
   return {
-    title: service.eyebrow
-      .toLowerCase()
-      .replace(/\b\w/g, (letter) => letter.toUpperCase()),
+    title: `${service.eyebrow === "API & INTEGRATIONS"
+      ? "API & Integrations"
+      : service.eyebrow
+          .toLowerCase()
+          .replace(/\b\w/g, (letter) => letter.toUpperCase())} in Agra`,
     description: service.description,
     keywords: service.keywords,
   };

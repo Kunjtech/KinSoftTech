@@ -11,7 +11,7 @@ export default function Footer() {
           </span>
         </a>
         <p>
-          Modern websites & digital solutions
+          Agra-based web development & digital solutions
           <br />
           for businesses ready to grow.
         </p>

@@ -3,7 +3,7 @@ const serviceGroups = [
     number: "01",
     slug: "website-development",
     title: "Website Development",
-    description: "Modern, responsive websites designed around your business and customers.",
+    description: "Responsive business websites designed and developed for companies in Agra and beyond.",
     items: [
       "Business websites",
       "Corporate websites",
@@ -71,8 +71,8 @@ export default function Services() {
           </h1>
         </div>
         <p>
-          From your first website to a complete digital system, we build
-          practical products that help your business grow.
+          From website design and development in Agra to a complete digital
+          system, we build practical products around your business and customers.
         </p>
       </div>
       <div className="service-grid">
