@@ -4,12 +4,15 @@ import GoogleAnalyticsPageViews from "../components/GoogleAnalyticsPageViews.jsx
 
 export const metadata = {
   title: {
-    default: "Web Development & Digital Solutions | KinSoftTech",
+    default: "Web Development Company in Agra | KinSoftTech",
     template: "%s | KinSoftTech",
   },
   description:
-    "KinSoftTech provides website design and development, e-commerce websites, mobile app development, and custom software for growing businesses.",
+    "KinSoftTech is a web development company in Agra creating business websites, online stores, mobile apps, and custom software.",
   keywords: [
+    "web development company in Agra",
+    "website development in Agra",
+    "web design company in Agra",
     "website design",
     "web development",
     "business websites",
@@ -17,6 +20,11 @@ export const metadata = {
     "mobile app development",
     "custom software development",
   ],
+  openGraph: {
+    siteName: "KinSoftTech",
+    locale: "en_IN",
+    type: "website",
+  },
   icons: { icon: "/favicon.svg" },
 };
 

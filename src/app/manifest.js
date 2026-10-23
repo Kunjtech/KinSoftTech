@@ -4,7 +4,7 @@ export default function manifest() {
     name: "KinSoftTech | Digital Solutions",
     short_name: "KinSoftTech",
     description:
-      "Websites, mobile apps, and digital solutions for businesses ready to grow.",
+      "Web development, websites, mobile apps, and digital solutions from Agra-based KinSoftTech.",
     start_url: "/",
     scope: "/",
     display: "standalone",

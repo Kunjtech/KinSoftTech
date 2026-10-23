@@ -76,9 +76,10 @@ export default function LandingPage() {
           </h2>
         </div>
         <p>
-          Transparent scope, responsive design, practical technology and
-          support after launch. Every project starts with understanding your
-          business first.
+          Based in Sikandra, Agra, KinSoftTech works with local businesses to
+          build responsive websites, practical digital tools and clear paths
+          for customers to get in touch. Every project starts with understanding
+          your business first.
         </p>
       </section>
 

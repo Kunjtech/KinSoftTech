@@ -3,11 +3,12 @@ import Portfolio from "../../components/Portfolio.jsx";
 import CTA from "../../components/CTA.jsx";
 
 export const metadata = {
-  title: "Website Portfolio & Design Concepts",
+  title: "Website Design Concepts | Agra Studio",
   description:
-    "View responsive website design concepts for healthcare, restaurant, salon, and retail businesses, and explore ideas for your own business website.",
+    "View responsive website design concepts from KinSoftTech, an Agra-based web development studio, for healthcare, restaurant, salon, and retail businesses.",
   keywords: [
     "website design portfolio",
+    "website design studio in Agra",
     "business website examples",
     "healthcare website design",
     "restaurant website design",

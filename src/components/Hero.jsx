@@ -4,16 +4,17 @@ export default function Hero({ Icon }) {
       <div className="hero-content">
         <div className="hero-eyebrow">
           <span />
-          INDEPENDENT DIGITAL STUDIO
+          WEB DESIGN & DEVELOPMENT IN AGRA
           <span />
         </div>
         <h1>
-          Make your next
+          Web development
           <br />
-          move <span>digital.</span>
+          for Agra <span>businesses.</span>
         </h1>
         <p className="hero-copy">
-          Websites, apps and digital tools that make your business easier to find, love and grow.
+          KinSoftTech is a web development company in Agra, building responsive
+          websites, online stores and digital tools for growing businesses.
         </p>
         <div className="hero-actions">
           <a className="button button--dark" href="/contact">

@@ -3,10 +3,12 @@ import Services from "../../components/Services.jsx";
 import CTA from "../../components/CTA.jsx";
 
 export const metadata = {
-  title: "Web, App & Software Development Services",
+  title: "Web, App & Software Development in Agra",
   description:
-    "Explore responsive website design, e-commerce development, Android and iOS apps, custom software, API integrations, website maintenance, and content management support from KinSoftTech.",
+    "Explore web development in Agra, including responsive website design, e-commerce stores, mobile apps, custom software, API integrations, and ongoing maintenance from KinSoftTech.",
   keywords: [
+    "web development in Agra",
+    "website development in Agra",
     "website design and development",
     "responsive web design",
     "e-commerce development",
